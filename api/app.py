@@ -6,11 +6,12 @@ Created on Sat Jun  8 14:03:00 2024
 """
 
 from flask import Flask, jsonify, request
-from models import conversion, validations
+import conversion
+import validations
 
 app = Flask(__name__)
 
-@app.route('/ping')
+@app.route('/')
 def ping():
     return jsonify({"message": 'Pong!'})
 
@@ -84,4 +85,4 @@ def HexadecimalToOther(hexadecimal):
     
 
 if __name__ == '__main__':
-    app.run(debug=True, port=4000)
+    app.run(debug=True)

@@ -5,7 +5,7 @@ Created on Sat Jun  8 14:03:33 2024
 @author: Mario
 """
 
-from . import validations
+import validations
 
 def DecimalToOther(to,decimal):
     sign, number = getSignAndNumber(decimal)
@@ -83,7 +83,6 @@ def getSignAndNumber(number):
 
 
 
-"""
 print(DecimalToOther(0,"1234567a")) 
 print(DecimalToOther(2,"1234567")) 
 print(DecimalToOther(8,"1234567")) 
@@ -103,4 +102,3 @@ print(HexadecimalToOther(0, "12D687"))
 print(HexadecimalToOther(2, "12D687"))
 print(HexadecimalToOther(8, "12D687"))
 print(HexadecimalToOther(16, "12D687"))
-"""
