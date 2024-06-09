@@ -2,7 +2,7 @@
 FROM python:3.11.5
 
 # Establece el directorio de trabajo en /app
-WORKDIR /app
+WORKDIR /src
 
 # Copia el archivo actual (en el mismo directorio que el Dockerfile) al directorio de trabajo en la imagen
 COPY requirements.txt .
@@ -14,4 +14,4 @@ RUN pip install -r requirements.txt
 EXPOSE 5000
 
 # Ejecuta la aplicación cuando se inicie el contenedor
-CMD ["python", "app.py"]
+CMD ["python", "src/app.py"]
