@@ -1,12 +1,11 @@
 # Usa una imagen base existente
-FROM python:3.11.5
+FROM python:3.9
 
 # Establece el directorio de trabajo en /app
 WORKDIR /app
 
 # Copia el archivo actual (en el mismo directorio que el Dockerfile) al directorio de trabajo en la imagen
 # Copia el código de la aplicación al contenedor
-COPY src/ .
 
 COPY requirements.txt .
 
