@@ -238,14 +238,14 @@
       }
     },
     "requestBodies": {
-      "UserArray": {
-        "description": "List of user object",
+      "BinarySystemArray": {
+        "description": "List of Binary System object",
         "content": {
           "application/json": {
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/BinarySystem"
               }
             }
           }
