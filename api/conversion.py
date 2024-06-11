@@ -82,7 +82,7 @@ def getSignAndNumber(number):
     return '', number
 
 
-
+"""
 print(DecimalToOther(0,"1234567a")) 
 print(DecimalToOther(2,"1234567")) 
 print(DecimalToOther(8,"1234567")) 
@@ -102,3 +102,4 @@ print(HexadecimalToOther(0, "12D687"))
 print(HexadecimalToOther(2, "12D687"))
 print(HexadecimalToOther(8, "12D687"))
 print(HexadecimalToOther(16, "12D687"))
+"""

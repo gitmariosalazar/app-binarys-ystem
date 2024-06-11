@@ -1,5 +1,5 @@
 # Usa una imagen base oficial de Python 3.8 (puedes cambiar a una versión más reciente si lo deseas)
-FROM python:3.11-slim
+FROM python:3.11.5
 
 # Establece el directorio de trabajo en /app
 WORKDIR /app
@@ -8,7 +8,7 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Instala las dependencias del proyecto
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
 # Copia el resto de los archivos de la aplicación al directorio de trabajo del contenedor
 COPY api/ .

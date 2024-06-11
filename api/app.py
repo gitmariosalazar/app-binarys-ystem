@@ -5,15 +5,47 @@ Created on Sat Jun  8 14:03:00 2024
 @author: Mario
 """
 
-from flask import Flask, jsonify, request
-import conversion
-import validations
+from flask import Flask, jsonify, request, send_from_directory, render_template
+from flask_swagger_ui import get_swaggerui_blueprint
+import os
+import sys
+
+
+# Agregar el directorio actual a sys.path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+import conversion, validations
+
+
+
 
 app = Flask(__name__)
 
+@app.route('/static/<path:path>')
+def send_static(path):
+    return send_from_directory(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'static')))
+
+
+print(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'static')))
+SWAGGER_URL = '/api/docs'
+API_URL = "/static/swagger.json"
+
+swaggerui_blueprint = get_swaggerui_blueprint(
+    SWAGGER_URL,
+    API_URL,
+    config={
+        'app_name': "My API"
+    }
+)
+
+app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
+
+
 @app.route('/')
 def ping():
-    return jsonify({"message": 'Pong!'})
+    domain = request.host_url+"api/docs"
+    print(domain)
+    return render_template("html/index.html", domain=domain)
 
 
 @app.route('/decimal/<decimal>', methods=['GET'])
