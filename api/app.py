@@ -7,6 +7,7 @@ Created on Sat Jun  8 14:03:00 2024
 
 from flask import Flask, jsonify, request, send_from_directory, render_template
 from flask_swagger_ui import get_swaggerui_blueprint
+from flask_cors import CORS
 import os
 import sys
 
@@ -20,6 +21,7 @@ import conversion, validations
 
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/static/<path:path>')
 def send_static(path):
