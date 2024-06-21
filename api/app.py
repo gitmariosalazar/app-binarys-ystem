@@ -28,26 +28,15 @@ def send_static(path):
     return send_from_directory(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'static')))
 
 
-print(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'static')))
-SWAGGER_URL = '/api/docs'
-API_URL = "/static/swagger.json"
-
-swaggerui_blueprint = get_swaggerui_blueprint(
-    SWAGGER_URL,
-    API_URL,
-    config={
-        'app_name': "My API"
-    }
-)
-
-app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
-
-
 @app.route('/')
 def ping():
-    domain = request.host_url+"api/docs"
-    print(domain)
-    return render_template("html/index.html", domain=domain)
+    domain = request.host_url+"swagger/docs"
+    return render_template("index.html", domain=domain)
+
+
+@app.route('/swagger/docs')
+def swagger():
+    return render_template('swagger.html', title="My API")
 
 
 @app.route('/decimal/<decimal>', methods=['GET'])
