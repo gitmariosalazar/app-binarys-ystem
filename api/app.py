@@ -44,6 +44,7 @@ def DecimalToOther(decimal):
     sign, number = conversion.getSignAndNumber(decimal)
     if decimal and validations.isValid(number=number, index=0)[0]:
         return jsonify({
+            'error': 0,
             'message': "Request successfull!",
             'decimal': conversion.DecimalToOther(0, decimal)[0],
             'binary': conversion.DecimalToOther(2, decimal)[0],
@@ -52,6 +53,7 @@ def DecimalToOther(decimal):
             })
     else:
         return jsonify({
+            'error': 1,
             'message': "Request failed, The decimal number is not correct!"
             })
 
@@ -61,6 +63,7 @@ def BinaryToOther(binary):
     sign, number = conversion.getSignAndNumber(binary)
     if binary and validations.isValid(number=number, index=1)[0]:
         return jsonify({
+            'error': 0,
             'message': "Request successfull!",
             'decimal': conversion.BinaryToOther(0, binary_number=binary)[0],
             'binary': conversion.BinaryToOther(2, binary_number=binary)[0],
@@ -69,6 +72,7 @@ def BinaryToOther(binary):
             })
     else:
         return jsonify({
+            'error': 1,
             'message': "Request failed, The binary number is not correct!"
             })
 
@@ -78,6 +82,7 @@ def OctalToOther(octal):
     sign, number = conversion.getSignAndNumber(octal)
     if validations.isValid(number=number, index=2)[0]:
         return jsonify({
+            'error': 0,
             'message': "Request successfull!",
             'decimal': conversion.OctalToOther(0, octal)[0],
             'binary': conversion.OctalToOther(2, octal)[0],
@@ -86,6 +91,7 @@ def OctalToOther(octal):
             })
     else:
         return jsonify({
+            'error': 1,
             'message': "Request failed, The octal number is not correct!"
             })
 
@@ -95,6 +101,7 @@ def HexadecimalToOther(hexadecimal):
     sign, number = conversion.getSignAndNumber(hexadecimal)
     if number and validations.isValid(number=number, index=3)[0]:
         return jsonify({
+            'error': 0,
             'message': "Request successfull!",
             'decimal': conversion.HexadecimalToOther(0, hexadecimal)[0],
             'binary': conversion.HexadecimalToOther(2, hexadecimal)[0],
@@ -103,6 +110,7 @@ def HexadecimalToOther(hexadecimal):
             })
     else:
         return jsonify({
+            'error': 1,
             'message': "Request failed, The hexadecimal number is not correct!"
             })
     
